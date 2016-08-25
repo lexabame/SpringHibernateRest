@@ -5,14 +5,14 @@
        xmlns:tx="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <context:annotation-config/><!--
+    <context:annotation-config/>
 
     <context:component-scan base-package="com.alex.login.rest.api"/>
 
     <context:component-scan base-package="com.alex.login.services.impl"/>
 
-    <context:component-scan base-package="com.alex.login.dao.impl"/>-->
-<!--
+    <context:component-scan base-package="com.alex.login.dao.impl"/>
+
     <bean
             class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
@@ -52,5 +52,5 @@
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>-->
+    </bean>
 </beans>
