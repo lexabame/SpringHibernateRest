@@ -101,3 +101,7 @@ hs_err_pid*
 target/generated-sources/
 target/maven-archiver/
 target/maven-status/
+target/classes/com/
+target/spring-hibernate-rest/META-INF/
+target/spring-hibernate-rest/WEB-INF/classes/com/
+target/spring-hibernate-rest/WEB-INF/lib/
