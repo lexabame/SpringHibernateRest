@@ -5,16 +5,9 @@
        xmlns:tx="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <context:annotation-config/>
+    <context:component-scan base-package="com.alex.login"/>
 
-    <context:component-scan base-package="com.alex.login.rest.api"/>
-
-    <context:component-scan base-package="com.alex.login.services.impl"/>
-
-    <context:component-scan base-package="com.alex.login.dao.impl"/>
-
-    <bean
-            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
             <value>classpath:database.properties</value>
         </property>
@@ -28,19 +21,26 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
 
-        <property name="annotatedClasses">
-            <list>
-                <value>com.alex.login.dao.model.UserEntity</value>
-            </list>
-        </property>
+        <property name="packagesToScan"
+                  value="com.alex.login.dao"/>
 
         <property name="hibernateProperties">
             <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="javax.persistence.validation.group.pre-persist"></prop>
+                <prop key="javax.persistence.validation.group.pre-update"></prop>
+                <prop key="javax.persistence.validation.group.pre-remove"></prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
             </props>
@@ -53,4 +53,6 @@
           class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+
 </beans>

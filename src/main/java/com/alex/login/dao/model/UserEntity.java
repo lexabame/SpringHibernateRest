@@ -1,68 +1,39 @@
 package com.alex.login.dao.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 /**
  * Created by alejandro on 8/20/16.
  */
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "users")
 public class UserEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Integer id;
 
-    private String userName;
+    @Column(name = "username")
+    private String username;
 
+    @Column(name = "secret")
     private String password;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_ame")
     private String lastName;
 
+    @Column(name = "role")
     private String role;
-
-    public void setId(final Integer id) {
-        this.id = id;
-    }
-
-    public void setUserName(final String userName) {
-        this.userName = userName;
-    }
-
-    public void setPassword(final String password) {
-        this.password = password;
-    }
-
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setRole(final String role) {
-        this.role = role;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getRole() {
-        return role;
-    }
 }

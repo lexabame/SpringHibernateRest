@@ -21,10 +21,10 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
 
+    private static final long serialVersionUID = -8039686696076337053L;
 
-
-    @XmlElement(name = "userName")
-    private String userName;
+    @XmlElement(name = "username")
+    private String username;
 
     @XmlElement(name = "password")
     private String password;
