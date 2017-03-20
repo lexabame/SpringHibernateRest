@@ -8,26 +8,20 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
+import java.util.Date;
 
 /**
- * Created by alejandro on 8/20/16.
+ * Created by alejandro on 3/19/17.
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class User implements Serializable {
+public class UserCanonical {
 
-    private static final long serialVersionUID = -8039686696076337053L;
-
-    @XmlElement(name = "username")
-    private String username;
-
-    @XmlElement(name = "password")
-    private String password;
+    @XmlElement(name = "id")
+    private Long id;
 
     @XmlElement(name = "firstName")
     private String firstName;
@@ -35,6 +29,12 @@ public class User implements Serializable {
     @XmlElement(name = "lastName")
     private String lastName;
 
-    @XmlElement(name = "role")
-    private String role;
+    @XmlElement(name = "account")
+    private AccountCanonical account;
+
+    @XmlElement(name = "creationDate")
+    private Date creationDate;
+
+    @XmlElement(name = "modificationDate")
+    private Date modificationDate;
 }

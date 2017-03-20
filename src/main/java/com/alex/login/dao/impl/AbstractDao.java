@@ -3,6 +3,7 @@ package com.alex.login.dao.impl;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -14,6 +15,6 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 public abstract class AbstractDao {
 
     @Autowired
-    protected @Getter HibernateTemplate hibernateTemplate;
+    protected @Getter SessionFactory sessionFactory;
 
 }

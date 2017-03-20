@@ -8,6 +8,12 @@
     <name>spring-hibernate-rest Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <!--<spring.version>3.2.0.RELEASE</spring.version>-->
+        <spring.version> 4.0.6.RELEASE</spring.version>
+        <hibernate.version>4.1.4.Final</hibernate.version>
+    </properties>
+
     <repositories>
         <repository>
             <id>JBoss repository</id>
@@ -27,25 +33,31 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- Jersey + Spring -->
@@ -105,19 +117,28 @@
             <version>5.1.9</version>
         </dependency>
 
-        <!-- Hibernate core -->
+        <!-- Hibernate -->
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Hibernate core -->
+        <!--<dependency>
             <groupId>hibernate</groupId>
             <artifactId>hibernate3</artifactId>
             <version>3.2.3.GA</version>
         </dependency>
 
-        <!-- Hibernate annotation -->
+        <!- Hibernate annotation -
         <dependency>
             <groupId>hibernate-annotations</groupId>
             <artifactId>hibernate-annotations</artifactId>
             <version>3.3.0.GA</version>
         </dependency>
+
+
 
         <dependency>
             <groupId>hibernate-commons-annotations</groupId>
@@ -125,7 +146,21 @@
             <version>3.0.0.GA</version>
         </dependency>
 
-        <!-- Hibernate library dependecy start -->
+
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <! Hibernate library dependecy start -
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
@@ -161,7 +196,13 @@
             <artifactId>asm</artifactId>
             <version>3.3.1</version>
         </dependency>
-        <!-- Hibernate library dependecy end -->
+        <!- Hibernate library dependecy end -
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.1.9.Final</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.transaction</groupId>
@@ -173,7 +214,7 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>2.1.0</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
     <build>
