@@ -34,7 +34,7 @@ public class AccountEntity {
     private String role;
 
     @Column(name ="ACTIVE")
-    private Boolean status;
+    private Boolean active;
 
     @Column(name ="creation_date")
     //@Type(type = "dateTimeUserType")
@@ -43,7 +43,5 @@ public class AccountEntity {
     @Column(name ="MODIFICATION_DATE")
     //@Type(type = "dateTimeUserType")
     private Date modificationDate;
-
-
 
 }

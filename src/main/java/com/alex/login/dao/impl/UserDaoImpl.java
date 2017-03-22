@@ -24,22 +24,14 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     }
 
     @Override
-    public UserEntity getUser(final String username, final String password) {
-        /*Criteria cr = getSessionFactory().getCurrentSession().createCriteria(UserEntity.class);
-        cr.add(Restrictions.eq("username", username));
-        cr.add(Restrictions.eq("password", password));
-        List results = cr.list();
-        return (UserEntity) results.get(0);*/
+    public UserEntity getUserByEmail(final String email) {
 
+        UserEntity userEntity = (UserEntity) getSessionFactory().getCurrentSession()
+                .createCriteria(UserEntity.class, "user")
+                .createAlias("user.account", "account")
+                .add(Restrictions.eq("account.email", email)).list().get(0);
+        return userEntity;
 
-        Query query = getSessionFactory().getCurrentSession().createQuery("SELECT  ue from UserEntity ue WHERE username = :username AND password = :password");
-
-        query.setParameter("username", username);
-        query.setParameter("password", password);
-
-        List<UserEntity> users = query.list();
-
-        return users.get(0);
     }
 
     @Override
@@ -49,20 +41,18 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     }
 
     @Override
-    public UserEntity getUserByEmail(final String email) {
-
-        UserEntity userEntity = (UserEntity) getSessionFactory().getCurrentSession()
-                .createCriteria(UserEntity.class, "user")
-                .createAlias("user.account", "account")
-                .add(Restrictions.eq("account.email", email)).list().get(0);
-        return userEntity;
-
-
+    public void addUser(final UserEntity userEntity) {
+        getSessionFactory().getCurrentSession().save(userEntity);
     }
 
     @Override
-    public void addUser(final UserEntity userEntity) {
-        getSessionFactory().getCurrentSession().save(userEntity);
+    public void updateUser(final UserEntity userEntity) {
+        getSessionFactory().getCurrentSession().update(userEntity);
+    }
+
+    @Override
+    public void deleteUser(final UserEntity userEntity) {
+        getSessionFactory().getCurrentSession().update(userEntity);
     }
 
 

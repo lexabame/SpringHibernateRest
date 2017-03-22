@@ -1,4 +1,4 @@
-package com.alex.login.rest.data;
+package com.alex.login.remoting.rest.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +8,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
- * Created by alejandro on 8/20/16.
+ * Created by alejandro on 3/19/17.
  */
 
 @Data
@@ -19,17 +18,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class UserRestOutput implements Serializable {
-
-    @XmlElement(name = "firstName")
-    private String firstName;
-
-    @XmlElement(name = "lastName")
-    private String lastName;
-
-    @XmlElement(name = "role")
-    private String role;
+public class UserRestInput {
 
     @XmlElement(name = "email")
     private String email;
+
+    @XmlElement(name = "password")
+    private String password;
 }

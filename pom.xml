@@ -12,6 +12,7 @@
         <!--<spring.version>3.2.0.RELEASE</spring.version>-->
         <spring.version> 4.0.6.RELEASE</spring.version>
         <hibernate.version>4.1.4.Final</hibernate.version>
+        <modelmapper.version>0.7.4</modelmapper.version>
     </properties>
 
     <repositories>
@@ -122,6 +123,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Model Mapper -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
         </dependency>
 
         <!-- Hibernate core -->

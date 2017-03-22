@@ -13,12 +13,14 @@ public interface UserDao {
 
     UserEntity getUserById(final Long id);
 
-    UserEntity getUser(final String username,final String password);
-
     List<UserEntity> getUsers();
 
     UserEntity getUserByEmail(final String email);
 
     void addUser(final UserEntity userEntity);
+
+    void updateUser(final UserEntity userEntity);
+
+    void deleteUser(final UserEntity userEntity);
 
 }

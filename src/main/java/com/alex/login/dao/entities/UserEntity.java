@@ -33,6 +33,9 @@ public class UserEntity {
     @JoinColumn(name = "FK_ACCOUNT_ID")
     private AccountEntity account;
 
+    @Column(name ="ACTIVE")
+    private Integer active;
+
     @Column(name ="CREATION_DATE")
     //@Type(type = "dateTimeUserType")
     private Date creationDate;
@@ -40,5 +43,4 @@ public class UserEntity {
     @Column(name ="MODIFICATION_DATE")
     //@Type(type = "dateTimeUserType")
     private Date modificationDate;
-
 }

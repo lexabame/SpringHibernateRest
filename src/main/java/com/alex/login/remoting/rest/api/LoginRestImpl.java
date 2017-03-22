@@ -1,13 +1,12 @@
-package com.alex.login.rest.api;
+package com.alex.login.remoting.rest.api;
 
 import com.alex.login.dao.entities.AccountEntity;
 import com.alex.login.dao.entities.UserEntity;
-import com.alex.login.rest.data.UserRestInput;
-import com.alex.login.rest.data.UserRestOutput;
+import com.alex.login.remoting.rest.data.UserRestInput;
+import com.alex.login.remoting.rest.data.UserRestOutput;
 import com.alex.login.service.api.LoginService;
 import com.alex.login.service.exceptions.UserAuthenticationExeption;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.*;

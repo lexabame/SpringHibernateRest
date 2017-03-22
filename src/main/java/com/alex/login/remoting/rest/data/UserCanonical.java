@@ -1,15 +1,14 @@
-package com.alex.login.rest.data;
+package com.alex.login.remoting.rest.data;
 
-import com.alex.login.dao.entities.AccountEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -18,24 +17,21 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "account")
+@XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AccountCanonical {
+public class UserCanonical implements Serializable{
 
     @XmlElement(name = "id")
     private Long id;
 
-    @XmlElement(name = "email")
-    private String email;
+    @XmlElement(name = "firstName")
+    private String firstName;
 
-    @XmlElement(name = "secret")
-    private String secret;
+    @XmlElement(name = "lastName")
+    private String lastName;
 
-    @XmlElement(name = "role")
-    private String role;
-
-    @XmlElement(name = "status")
-    private Boolean status;
+    @XmlElement(name = "account")
+    private AccountCanonical account;
 
     @XmlElement(name = "creationDate")
     private Date creationDate;
